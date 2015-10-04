@@ -1,0 +1,9 @@
+AddType application/x-httpd-php .rss
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 216.213.74.21
+deny from 216.213.74.18/31
+deny from 216.213.74.20/30

@@ -1,0 +1,257 @@
+<?php
+// $Id: newq_x_params.php 269 2015-01-06 22:43:44Z paul $
+// New queue parameters list
+// Also need to update sr_new_game when adding new elements!
+$newq_xml = new SimpleXMLElement("
+<NEWQ-PARAMS>
+    <Parameter>
+        <Name>grey_comms_level</Name>
+        <Label>Send global comms tech level</Label>
+        <Size>medium</Size>
+        <Options>
+            <Option><Value>21</Value><Label>Unavailable</Label></Option>
+            <Option><Value>-4</Value><Default>Yes</Default></Option>
+            <Option><Value>-3</Value></Option>
+            <Option><Value>-2</Value></Option>
+            <Option><Value>-1</Value></Option>
+            <Option><Value>0</Value></Option>
+            <Option><Value>1</Value></Option>
+            <Option><Value>2</Value></Option>
+            <Option><Value>3</Value></Option>
+            <Option><Value>4</Value></Option>
+            <Option><Value>5</Value></Option>
+            <Option><Value>6</Value></Option>
+            <Option><Value>7</Value></Option>
+            <Option><Value>8</Value></Option>
+            <Option><Value>9</Value></Option>
+            <Option><Value>10</Value></Option>
+            <Option><Value>11</Value></Option>
+            <Option><Value>12</Value></Option>
+            <Option><Value>13</Value></Option>
+            <Option><Value>14</Value></Option>
+            <Option><Value>15</Value></Option>
+            <Option><Value>16</Value></Option>
+            <Option><Value>17</Value></Option>
+            <Option><Value>18</Value></Option>
+            <Option><Value>19</Value></Option>
+            <Option><Value>20</Value></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>white_comms_level</Name>
+        <Label>Send private comms tech level</Label>
+        <Size>medium</Size>
+        <Options>
+            <Option><Value>21</Value><Label>Unavailable</Label></Option>
+            <Option><Value>0</Value></Option>
+            <Option><Value>1</Value><Default>Yes</Default></Option>
+            <Option><Value>2</Value></Option>
+            <Option><Value>3</Value></Option>
+            <Option><Value>4</Value></Option>
+            <Option><Value>5</Value></Option>
+            <Option><Value>6</Value></Option>
+            <Option><Value>7</Value></Option>
+            <Option><Value>8</Value></Option>
+            <Option><Value>9</Value></Option>
+            <Option><Value>10</Value></Option>
+            <Option><Value>11</Value></Option>
+            <Option><Value>12</Value></Option>
+            <Option><Value>13</Value></Option>
+            <Option><Value>14</Value></Option>
+            <Option><Value>15</Value></Option>
+            <Option><Value>16</Value></Option>
+            <Option><Value>17</Value></Option>
+            <Option><Value>18</Value></Option>
+            <Option><Value>19</Value></Option>
+            <Option><Value>20</Value></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>black_comms_level</Name>
+        <Label>Send anonymous comms tech level</Label>
+        <Size>medium</Size>
+        <Options>
+            <Option><Value>21</Value><Label>Unavailable</Label><Default>Yes</Default></Option>
+            <Option><Value>0</Value></Option>
+            <Option><Value>1</Value></Option>
+            <Option><Value>2</Value></Option>
+            <Option><Value>3</Value></Option>
+            <Option><Value>4</Value></Option>
+            <Option><Value>5</Value></Option>
+            <Option><Value>6</Value></Option>
+            <Option><Value>7</Value></Option>
+            <Option><Value>8</Value></Option>
+            <Option><Value>9</Value></Option>
+            <Option><Value>10</Value></Option>
+            <Option><Value>11</Value></Option>
+            <Option><Value>12</Value></Option>
+            <Option><Value>13</Value></Option>
+            <Option><Value>14</Value></Option>
+            <Option><Value>15</Value></Option>
+            <Option><Value>16</Value></Option>
+            <Option><Value>17</Value></Option>
+            <Option><Value>18</Value></Option>
+            <Option><Value>19</Value></Option>
+            <Option><Value>20</Value></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>company_restart_cost</Name>
+        <Label>Company Restart Cost</Label>
+        <Size>mini</Size>
+        <Options>
+            <Option><Value>0</Value></Option>
+            <Option><Value>50</Value><Default>yes</Default></Option>
+            <Option><Value>100</Value></Option>
+            <Option><Value>200</Value></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>fortuna_flag</Name>
+        <Label>Fortuna</Label>
+        <Size>mini</Size>
+        <Options>
+            <Option><Value>0</Value><Label>No</Label></Option>
+            <Option><Value>1</Value><Label>Yes</Label><Default>yes</Default></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>tank_tech_level</Name>
+        <Label>Tank tech level</Label>
+        <Size>medium</Size>
+        <Options>
+            <Option><Value>6</Value><Label>Unavailable</Label></Option>
+            <Option><Value>0</Value></Option>
+            <Option><Value>1</Value><Default>Yes</Default></Option>
+            <Option><Value>2</Value></Option>
+            <Option><Value>3</Value></Option>
+            <Option><Value>4</Value></Option>
+            <Option><Value>5</Value></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>boomer_tech_level</Name>
+        <Label>Boomer tech level</Label>
+        <Size>medium</Size>
+        <Options>
+            <Option><Value>6</Value><Label>Unavailable</Label></Option>
+            <Option><Value>0</Value></Option>
+            <Option><Value>1</Value><Default>Yes</Default></Option>
+            <Option><Value>2</Value></Option>
+            <Option><Value>3</Value></Option>
+            <Option><Value>4</Value></Option>
+            <Option><Value>5</Value></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>nuke_tech_level</Name>
+        <Label>Nuke tech level</Label>
+        <Size>medium</Size>
+        <Options>
+            <Option><Value>6</Value><Label>Unavailable</Label></Option>
+            <Option><Value>0</Value></Option>
+            <Option><Value>1</Value></Option>
+            <Option><Value>2</Value><Default>Yes</Default></Option>
+            <Option><Value>3</Value></Option>
+            <Option><Value>4</Value></Option>
+            <Option><Value>5</Value></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>lstar_tech_level</Name>
+        <Label>L-Star tech level</Label>
+        <Size>medium</Size>
+        <Options>
+            <Option><Value>6</Value><Label>Unavailable</Label></Option>
+            <Option><Value>0</Value></Option>
+            <Option><Value>1</Value></Option>
+            <Option><Value>2</Value></Option>
+            <Option><Value>3</Value><Default>Yes</Default></Option>
+            <Option><Value>4</Value></Option>
+            <Option><Value>5</Value></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>ksat_tech_level</Name>
+        <Label>K-Sat tech level</Label>
+        <Size>medium</Size>
+        <Options>
+            <Option><Value>6</Value><Label>Unavailable</Label></Option>
+            <Option><Value>0</Value></Option>
+            <Option><Value>1</Value></Option>
+            <Option><Value>2</Value></Option>
+            <Option><Value>3</Value></Option>
+            <Option><Value>4</Value><Default>Yes</Default></Option>
+            <Option><Value>5</Value></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>neutron_tech_level</Name>
+        <Label>Neutron tech level</Label>
+        <Size>medium</Size>
+        <Options>
+            <Option><Value>6</Value><Label>Unavailable</Label></Option>
+            <Option><Value>0</Value></Option>
+            <Option><Value>1</Value></Option>
+            <Option><Value>2</Value></Option>
+            <Option><Value>3</Value></Option>
+            <Option><Value>4</Value><Default>Yes</Default></Option>
+            <Option><Value>5</Value></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>liquid_asset_percent</Name>
+        <Label>Liquid Asset Percent</Label>
+        <Size>mini</Size>
+        <Options>
+            <Option><Value>0</Value><Label>0%</Label></Option>
+            <Option><Value>10</Value><Label>10%</Label><Default>Yes</Default></Option>
+            <Option><Value>25</Value><Label>25%</Label></Option>
+            <Option><Value>33</Value><Label>33%</Label></Option>
+            <Option><Value>50</Value><Label>50%</Label></Option>
+            <Option><Value>100</Value><Label>100%</Label></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>blockade</Name>
+        <Label>Blockade</Label>
+        <Size>mini</Size>
+        <Options>
+            <Option><Value>Y</Value><Label>Yes</Label><Default>Yes</Default></Option>
+            <Option><Value>N</Value><Label>No</Label></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>siege</Name>
+        <Label>Siege</Label>
+        <Size>mini</Size>
+        <Options>
+            <Option><Value>Y</Value><Label>Yes</Label><Default>Yes</Default></Option>
+            <Option><Value>N</Value><Label>No</Label></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>winter_type</Name>
+        <Label>Nuclear Winter Type</Label>
+        <Size>medium</Size>
+        <Options>
+            <Option><Value>Nuclear &amp; Neutron</Value><Default>Yes</Default></Option>
+            <Option><Value>Nuclear</Value></Option>
+            <Option><Value>None</Value></Option>
+        </Options>
+    </Parameter>
+    <Parameter>
+        <Name>auto_force</Name>
+        <Label>Automatically force pass time after deadline</Label>
+        <Size>medium</Size>
+        <Options>
+            <Option><Value>0</Value><Default>Yes</Default></Option>
+            <Option><Value>43200</Value><Label>12 h</Label></Option>
+            <Option><Value>86400</Value><Label>24 h</Label></Option>
+            <Option><Value>172800</Value><Label>48 h</Label></Option>
+            <Option><Value>432000</Value><Label>120 h</Label></Option>
+            <Option><Value>604800</Value><Label>168 h</Label></Option>
+        </Options>
+    </Parameter>
+</NEWQ-PARAMS>");
+?>
