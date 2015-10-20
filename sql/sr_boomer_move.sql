@@ -20,7 +20,7 @@ sproc: BEGIN
 --
 -- Routine to move a boomer outside phase 4
 --
--- $Id: sr_boomer_move.sql 242 2014-07-13 13:48:48Z paul $
+-- $Id: sr_boomer_move.sql 309 2015-10-20 22:27:23Z paul $
 DECLARE proc_name TEXT Default "SR_BOOMER_MOVE";
 DECLARE sr_turnno INT Default 0;
 DECLARE sr_phaseno INT Default 0;
@@ -94,7 +94,7 @@ IF sr_boomerno not in (Select boomerno
                );
     LEAVE sproc;
 END IF;
-Select bm.terrno, nukes, neutron, visible, b.terrno, pl.terrname
+Select bm.terrno, nukes, neutron, visible, Max(b.terrno), Max(pl.terrname)
 Into sr_terrno_from, sr_nukes_before, sr_neutron_before, sr_is_visible, sr_home_terrno, sr_home_terrname
 From sp_boomers bm
 Left Join sp_border br On bm.terrno=br.terrno_from
