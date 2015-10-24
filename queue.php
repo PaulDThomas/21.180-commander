@@ -7,7 +7,7 @@
 ** Author       : Paul Thomas
 ** Date         : 9th Feburary 2004
 **
-** $Id: queue.php 281 2015-04-20 05:14:50Z paul $
+** $Id: queue.php 315 2015-10-24 15:44:18Z paul $
 **
 */
 
@@ -127,7 +127,14 @@ $qn = 0; while ($row = $result -> fetch_assoc()) { $qn++ ?>
     <tr>
         <td class="pV"><?php echo $row['players']; ?></td>
         <td class="aV" data-advance="<?php echo $row['advance_uts']; ?>"><?php echo $row['advance']; ?></td>
-        <td><?php echo $row['in_queue']; ?></td>
+        <td>
+            <?php echo $row['in_queue']; 
+            $sub = $mysqli -> query("Select username From sp_newq nq, sp_users u Where nq.userno = u.userno and nq.players=${row['players']} and nq.advance_uts = ${row['advance_uts']}") or die("Failed to get sign ups " . $mysqli -> error) ;
+            $sub = $mysqli -> query("Select username From sp_newq nq, sp_users u Where nq.userno = u.userno and nq.players=${row['players']} and nq.advance_uts = ${row['advance_uts']}") or die("Failed to get sign ups " . $mysqli -> error) ;
+            if ($sub -> num_rows > 0) while ($subrow = $sub -> fetch_assoc()) {echo "<p>${subrow['username']}</p>";}
+            $sub -> close();
+            ?>
+        </td>
         <td><?php echo $row['phase2_type']; ?></td>
         <td><input class="joinButton btn btn-mini btn-primary" type="button" name="join" value="<?php echo $row['status']; ?>" data-players="<?php echo $row['players']; ?>" data-advance="<?php echo $row['advance_uts']; ?>" /></td>
         <td class="queueExpand" data-expand="queueDetail<?php echo $qn; ?>"><i class="icon-plus-sign"></i></td>
