@@ -6,7 +6,7 @@
 ** Author       : Paul Thomas
 ** Date         : 1st February 2004
 **
-** $Id: worldcup.php 274 2015-02-03 08:56:38Z paul $
+** $Id: worldcup.php 317 2015-11-16 07:58:20Z paul $
 **
 */
 

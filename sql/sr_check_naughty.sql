@@ -18,7 +18,7 @@ DECLARE sr_turnno INT DEFAULT 0;
 DECLARE sr_phaseno INT DEFAULT 0;
 DECLARE failXML TEXT DEFAULT '';
 DECLARE sr_userno INT DEFAULT 0;
-DECLARE sr_powername TEXT;
+DECLARE sr_powername VARCHAR(15);
 DECLARE sr__utma TEXT;
 DECLARE done INT;
 

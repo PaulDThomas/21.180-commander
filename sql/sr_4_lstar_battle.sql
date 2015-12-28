@@ -6,11 +6,11 @@ Drop procedure if exists sr_4_lstar_battle;
 
 DELIMITER $$
 
-CREATE PROCEDURE `asupcouk_asup`.`sr_4_lstar_battle` (sr_gameno INT, sr_attacking_powername TEXT, sr_defending_powername TEXT)
+CREATE PROCEDURE `asupcouk_asup`.`sr_4_lstar_battle` (sr_gameno INT, sr_attacking_powername VARCHAR(15), sr_defending_powername VARCHAR(15))
 BEGIN
 sproc:BEGIN
 
--- $Id: sr_4_lstar_battle.sql 242 2014-07-13 13:48:48Z paul $
+-- $Id: sr_4_lstar_battle.sql 323 2015-12-19 21:25:27Z paul $
 -- Declare variables
 DECLARE proc_name TEXT Default "SR_4_LSTAR_BATTLE";
 DECLARE sr_turnno INT Default 0;

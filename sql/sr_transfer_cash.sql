@@ -12,12 +12,12 @@ Drop procedure if exists sr_transfer_cash;
 DELIMITER $$
 
 CREATE
-PROCEDURE `asupcouk_asup`.`sr_transfer_cash` (sr_gameno INT, sr_powername_from TEXT, sr_powername_to TEXT, sr_amount INT)
+PROCEDURE `asupcouk_asup`.`sr_transfer_cash` (sr_gameno INT, sr_powername_from VARCHAR(15), sr_powername_to VARCHAR(15), sr_amount INT)
 BEGIN
 sproc:BEGIN
 
 -- Declare variables
--- $Id: sr_transfer_cash.sql 242 2014-07-13 13:48:48Z paul $
+-- $Id: sr_transfer_cash.sql 323 2015-12-19 21:25:27Z paul $
 DECLARE proc_name CHAR(32) Default "SR_TRANSFER_CASH";
 DECLARE sr_userno_from INT Default 0;
 DECLARE sr_userno_to INT Default 0;

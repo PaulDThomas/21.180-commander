@@ -11,8 +11,8 @@ Drop procedure if exists `asupcouk_asup`.`sr_4_attack_ambush`;
 DELIMITER $$
 
 CREATE PROCEDURE `asupcouk_asup`.`sr_4_attack_ambush` (sr_gameno INT
-				                                      ,sr_powername TEXT
-				                                      ,sr_boomerno TEXT
+				                                      ,sr_powername VARCHAR(15)
+				                                      ,sr_boomerno INT
 				                                      ,sr_att_major CHAR(1)
 				                                      )
 BEGIN
@@ -24,8 +24,8 @@ DECLARE sr_turnno INT Default 0;
 DECLARE sr_phaseno INT Default 0;
 DECLARE sr_userno INT Default 0;
 DECLARE sr_def_userno INT Default 0;
-DECLARE sr_def_powername Text;
-DECLARE sr_terrname TEXT;
+DECLARE sr_def_powername VARCHAR(15);
+DECLARE sr_terrname VARCHAR(25);
 DECLARE sr_terrno INT Default 0;
 DECLARE sr_major_before INT Default 0;
 DECLARE sr_minor_before INT Default 0;

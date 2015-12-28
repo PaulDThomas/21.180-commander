@@ -10,7 +10,7 @@ Drop procedure if exists sr_4_attack_set;
 -- --------------------------------------------------------------------------------
 DELIMITER $$
 
-CREATE PROCEDURE `asupcouk_asup`.`sr_4_attack_set` (sr_gameno INT, sr_action TEXT, sr_def_powername TEXT, sr_def_terrname TEXT, sr_att_terrname TEXT)
+CREATE PROCEDURE `asupcouk_asup`.`sr_4_attack_set` (sr_gameno INT, sr_action TEXT, sr_def_powername varchar(15), sr_def_terrname varchar(25), sr_att_terrname varchar(25))
 BEGIN
 sproc:BEGIN
 
@@ -19,7 +19,7 @@ sproc:BEGIN
 DECLARE proc_name TEXT DEFAULT "SR_4_ATTACK_SET";
 DECLARE sr_turnno INT DEFAULT 0;
 DECLARE sr_phaseno INT DEFAULT 0;
-DECLARE sr_att_powername TEXT;
+DECLARE sr_att_powername  varchar(15);
 DECLARE sr_att_userno INT DEFAULT 0;
 DECLARE sr_att_terrno INT DEFAULT 0;
 DECLARE sr_def_userno INT DEFAULT 0;

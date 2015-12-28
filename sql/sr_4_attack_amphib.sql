@@ -12,10 +12,10 @@ DELIMITER $$
 
 CREATE PROCEDURE `asupcouk_asup`.`sr_4_attack_amphib` (sr_gameno INT
                                                 ,sr_powername TEXT
-                                                ,sr_terrname_from TEXT
-                                                ,sr_terrname_sea_from TEXT
-                                                ,sr_terrname_sea_to TEXT
-                                                ,sr_terrname_to TEXT
+                                                ,sr_terrname_from CHAR(25)
+                                                ,sr_terrname_sea_from CHAR(25)
+                                                ,sr_terrname_sea_to CHAR(25)
+                                                ,sr_terrname_to CHAR(25)
                                                 ,sr_major INT
                                                 ,sr_minor INT
                                                 ,sr_boomers INT
@@ -32,8 +32,8 @@ DECLARE sr_phaseno INT Default 0;
 DECLARE sr_userno INT Default 0;
 DECLARE sr_ma INT Default 0;
 DECLARE sr_def_userno INT Default 0;
-DECLARE sr_def_powername Text;
-DECLARE sr_att_powername Text;
+DECLARE sr_def_powername VARCHAR(15);
+DECLARE sr_att_powername VARCHAR(15);
 DECLARE sr_terrno_from INT Default 0;
 DECLARE sr_terrno_to INT Default 0;
 DECLARE sr_terrno_sea_from INT Default 0;
@@ -66,7 +66,7 @@ DECLARE sr_tech INT DEFAULT 0;
 DECLARE sr_land_tech INT DEFAULT 0;
 DECLARE sr_strat_tech INT DEFAULT 0;
 DECLARE sr_homes INT DEFAULT null;
-DECLARE sr_power_terrtype TEXT DEFAULT "";
+DECLARE sr_power_terrtype VARCHAR(4) DEFAULT "";
 DECLARE current_terrno INT DEFAULT 0;
 DECLARE sr_result TEXT;
 DECLARE sr_retaliation INT DEFAULT 0;

@@ -6,7 +6,7 @@ Drop procedure if exists sr_send_communication;
 
 DELIMITER $$
 
-CREATE PROCEDURE `asupcouk_asup`.`sr_send_communication` (sr_gameno INT, sr_powername TEXT, sr_to_xml TEXT, sr_message TEXT)
+CREATE PROCEDURE `asupcouk_asup`.`sr_send_communication` (sr_gameno INT, sr_powername VARCHAR(15), sr_to_xml TEXT, sr_message TEXT)
 BEGIN
 sproc:BEGIN
 
@@ -15,7 +15,7 @@ sproc:BEGIN
 DECLARE proc_name TEXT DEFAULT "SR_SEND_COMMUNICATION";
 DECLARE sr_userno INT DEFAULT 0;
 -- DECLARE sr_to_userno INT DEFAULT 0;
-DECLARE sr_to_powername TEXT;
+DECLARE sr_to_powername VARCHAR(15);
 DECLARE header TEXT;
 DECLARE sr_turnno INT DEFAULT 0;
 DECLARE sr_phaseno INT DEFAULT 0;

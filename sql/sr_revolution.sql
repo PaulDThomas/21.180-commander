@@ -7,12 +7,12 @@ Drop procedure if exists sr_revolution;
 DELIMITER $$
 
 CREATE
-PROCEDURE `asupcouk_asup`.`sr_revolution` (sr_gameno INT, sr_powername TEXT, sr_userno INT)
+PROCEDURE `asupcouk_asup`.`sr_revolution` (sr_gameno INT, sr_powername VARCHAR(15), sr_userno INT)
 BEGIN
 sproc:BEGIN
 
 -- Procedure to take over a Superpower
--- $Id: sr_revolution.sql 242 2014-07-13 13:48:48Z paul $
+-- $Id: sr_revolution.sql 323 2015-12-19 21:25:27Z paul $
 DECLARE proc_name TEXT DEFAULT "SR_REVOLUTION";
 DECLARE sr_old_userno INT DEFAULT 0;
 DECLARE sr_deadline_uts INT DEFAULT 0;

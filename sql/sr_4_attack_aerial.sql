@@ -11,9 +11,9 @@ Drop procedure if exists sr_4_attack_aerial;
 DELIMITER $$
 
 CREATE PROCEDURE `asupcouk_asup`.`sr_4_attack_aerial` (sr_gameno INT
-                                               ,sr_powername TEXT
-                                               ,sr_terrname_from TEXT
-                                               ,sr_terrname_to TEXT
+                                               ,sr_powername VARCHAR(15)
+                                               ,sr_terrname_from VARCHAR(25)
+                                               ,sr_terrname_to VARCHAR(25)
                                                ,sr_major INT
                                                ,sr_minor INT
                                                ,sr_att_major CHAR(1)
@@ -38,8 +38,8 @@ DECLARE sr_minor_to_after INT Default 0;
 DECLARE mcost INT DEFAULT 0;
 DECLARE ocost INT DEFAULT 0;
 DECLARE gcost INT DEFAULT 0;
-DECLARE sr_att_powername TEXT;
-DECLARE sr_def_powername TEXT;
+DECLARE sr_att_powername VARCHAR(15);
+DECLARE sr_def_powername VARCHAR(15);
 DECLARE sr_def_userno INT DEFAULT 0;
 DECLARE sr_minerals INT DEFAULT 0;
 DECLARE sr_oil INT DEFAULT 0;
@@ -47,7 +47,7 @@ DECLARE sr_grain INT DEFAULT 0;
 DECLARE sr_tech INT DEFAULT 0;
 DECLARE sr_strat_tech INT DEFAULT 0;
 DECLARE sr_homes INT DEFAULT null;
-DECLARE sr_power_terrtype TEXT DEFAULT "";
+DECLARE sr_power_terrtype VARCHAR(4) DEFAULT "";
 DECLARE sr_attack_array TEXT;
 DECLARE sr_result TEXT;
 DECLARE sr_retaliation INT DEFAULT 0;

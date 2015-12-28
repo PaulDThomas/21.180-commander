@@ -19,7 +19,7 @@ sproc:BEGIN
 -- Declare variables
 -- $Id: sr_check_lstar_slots.sql 242 2014-07-13 13:48:48Z paul $
 DECLARE proc_name TEXT Default "SR_CHECK_LSTAR_SLOTS";
-DECLARE sr_powername TEXT;
+DECLARE sr_powername VARCHAR(15);
 DECLARE sr_userno INT Default 0;
 DECLARE sr_tech INT Default 0;
 DECLARE sr_lstars INT Default 0;

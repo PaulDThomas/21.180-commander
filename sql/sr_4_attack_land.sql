@@ -11,9 +11,9 @@ Drop procedure if exists sr_4_attack_land;
 DELIMITER $$
 
 CREATE PROCEDURE `asupcouk_asup`.`sr_4_attack_land` (sr_gameno INT
-                                                    ,sr_powername TEXT
-                                                    ,sr_terrname_from TEXT
-                                                    ,sr_terrname_to TEXT
+                                                    ,sr_powername VARCHAR(15)
+                                                    ,sr_terrname_from VARCHAR(25)
+                                                    ,sr_terrname_to VARCHAR(25)
                                                     ,sr_major INT
                                                     ,sr_minor INT
                                                     ,sr_att_major CHAR(1)
@@ -27,8 +27,8 @@ DECLARE sr_turnno INT Default 0;
 DECLARE sr_phaseno INT Default 0;
 DECLARE sr_userno INT Default 0;
 DECLARE sr_def_userno INT Default 0;
-DECLARE sr_def_powername Text;
-DECLARE sr_att_powername Text;
+DECLARE sr_def_powername varchar(15);
+DECLARE sr_att_powername varchar(15);
 DECLARE sr_terrno_from INT Default 0;
 DECLARE sr_terrno_to INT Default 0;
 DECLARE sr_major_from_before INT Default 0;
@@ -51,7 +51,7 @@ DECLARE sr_attack_array TEXT;
 DECLARE sr_tech INT DEFAULT 0;
 DECLARE sr_strat_tech INT DEFAULT 0;
 DECLARE sr_homes INT DEFAULT null;
-DECLARE sr_power_terrtype TEXT DEFAULT "";
+DECLARE sr_power_terrtype VARCHAR(4) DEFAULT "";
 DECLARE sr_result TEXT;
 DECLARE sr_retaliation INT DEFAULT 0;
 DECLARE sr_ret_userno INT;

@@ -12,7 +12,7 @@ DELIMITER $$
 
 CREATE
 PROCEDURE `asupcouk_asup`.`sr_4_spaceblast` (sr_gameno INT
-                                            ,sr_powername TEXT
+                                            ,sr_powername VARCHAR(15)
                                             ,sr_nukes INT
                                             )
 BEGIN
@@ -26,7 +26,7 @@ DECLARE sr_userno INT Default 0;
 DECLARE sr_avail_nukes INT Default 0;
 DECLARE i INT Default 0;
 DECLARE r DOUBLE Default 0;
-DECLARE sr_def_powername TEXT;
+DECLARE sr_def_powername VARCHAR(15);
 DECLARE sr_def_userno INT;
 DECLARE sr_def_lstars INT Default 0;
 DECLARE sr_def_ksats INT Default 0;

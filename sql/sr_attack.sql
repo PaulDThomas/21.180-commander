@@ -11,8 +11,8 @@ Drop procedure if exists sr_attack;
 DELIMITER $$
 
 CREATE PROCEDURE `asupcouk_asup`.`sr_attack` (sr_gameno INT
-											 ,sr_terrname TEXT
-											 ,sr_powername TEXT
+											 ,sr_terrname VARCHAR(25)
+											 ,sr_powername VARCHAR(15)
 											 ,INOUT sr_attack_array TEXT
 											 )
 BEGIN
@@ -46,13 +46,13 @@ sproc:BEGIN
 DECLARE proc_name TEXT Default "SR_ATTACK";
 DECLARE sr_turnno INT Default 0;
 DECLARE sr_phaseno INT Default 0;
-DECLARE sr_terrtype TEXT;
+DECLARE sr_terrtype VARCHAR(4);
 DECLARE sr_round INT Default 0;
 DECLARE sr_max_rounds INT Default 999;
 DECLARE sr_coastal CHAR(1) Default 'N';
 
 DECLARE sr_att_userno INT Default 0;
-DECLARE sr_att_powername TEXT;
+DECLARE sr_att_powername VARCHAR(15);
 DECLARE sr_att_tanks INT Default 0;
 DECLARE sr_att_armies INT Default 0;
 DECLARE sr_att_boomers INT Default 0;
@@ -71,7 +71,7 @@ DECLARE sr_att_water_tech INT Default 0;
 DECLARE sr_att_naughty TEXT Default 'N';
 
 DECLARE sr_def_userno INT Default 0;
-DECLARE sr_def_powername TEXT Default 'Locals';
+DECLARE sr_def_powername VARCHAR(15) Default 'Locals';
 DECLARE sr_def_tanks INT Default 0;
 DECLARE sr_def_armies INT Default 0;
 DECLARE sr_def_boomers INT Default 0;

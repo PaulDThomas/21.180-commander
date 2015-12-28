@@ -10,11 +10,11 @@ Drop procedure if exists SR_USER_transaction;
 -- --------------------------------------------------------------------------------
 DELIMITER $$
 
-CREATE PROCEDURE `asupcouk_asup`.`sr_user_transaction` (sr_gameno INT, sr_sell_power CHAR(16), sr_buy_power CHAR(16), sr_resource CHAR(50), sr_amount INT, sr_transaction_value INT)
+CREATE PROCEDURE `asupcouk_asup`.`sr_user_transaction` (sr_gameno INT, sr_sell_power VARCHAR(15), sr_buy_power VARCHAR(15), sr_resource CHAR(50), sr_amount INT, sr_transaction_value INT)
 BEGIN
 sproc:BEGIN
 
--- $Id: sr_user_transaction.sql 244 2014-07-13 16:44:49Z paul $
+-- $Id: sr_user_transaction.sql 323 2015-12-19 21:25:27Z paul $
 DECLARE sr_siege CHAR(1);
 
 -- Check game and phase

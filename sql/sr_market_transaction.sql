@@ -44,7 +44,7 @@ Drop procedure if exists sr_market_transaction;
 -- --------------------------------------------------------------------------------
 DELIMITER $$
 
-CREATE PROCEDURE `asupcouk_asup`.`sr_market_transaction` (sr_gameno INT, sr_powername CHAR(16), sr_action CHAR(4), sr_resource CHAR(8), sr_amount INT)
+CREATE PROCEDURE `asupcouk_asup`.`sr_market_transaction` (sr_gameno INT, sr_powername VARCHAR(15), sr_action CHAR(4), sr_resource CHAR(8), sr_amount INT)
 BEGIN
 sproc:BEGIN
 

@@ -12,7 +12,7 @@ DELIMITER $$
 
 CREATE
 PROCEDURE `asupcouk_asup`.`sr_4_warheads` (sr_gameno INT
-                                          ,sr_powername TEXT
+                                          ,sr_powername VARCHAR(15)
                                           ,sr_warhead_array TEXT
                                           )
 BEGIN
@@ -40,14 +40,14 @@ DECLARE sr_avail_neutron INT Default 0;
 DECLARE sr_targets INT Default 0;
 DECLARE i INT Default 0;
 DECLARE r DOUBLE Default 0;
-DECLARE sr_terrname TEXT;
+DECLARE sr_terrname VARCHAR(25);
 DECLARE sr_terrno INT Default 0;
 DECLARE sr_major INT Default 0;
 DECLARE sr_minor INT Default 0;
 DECLARE sr_nukes INT Default 0;
 DECLARE sr_neutron INT Default 0;
 DECLARE sr_def_userno INT Default 0;
-DECLARE sr_def_powername TEXT;
+DECLARE sr_def_powername VARCHAR(15);
 DECLARE sr_blanket_slots INT Default 0;
 DECLARE sr_blanket_hits INT Default 0;
 DECLARE sr_slots INT Default 0;

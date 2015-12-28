@@ -12,7 +12,7 @@ DELIMITER $$
 
 CREATE
 PROCEDURE `asupcouk_asup`.`sr_4_pass` (sr_gameno INT
-                                      ,sr_powername TEXT
+                                      ,sr_powername VARCHAR(15)
                                       )
 BEGIN
 sproc:BEGIN
@@ -23,8 +23,8 @@ DECLARE sr_turnno INT Default 0;
 DECLARE sr_phaseno INT Default 0;
 DECLARE sr_ma INT Default 0;
 DECLARE sr_userno INT Default 0;
-DECLARE sr_current_powername TEXT;
-DECLARE sr_waiting_powername TEXT;
+DECLARE sr_current_powername VARCHAR(15);
+DECLARE sr_waiting_powername VARCHAR(15);
 DECLARE sr_redeploy INT Default 0;
 DECLARE sr_retaliation INT Default 0;
 DECLARE sr_extra INT Default 0;

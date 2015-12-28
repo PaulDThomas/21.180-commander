@@ -11,7 +11,7 @@ Drop procedure if exists sr_acquire_comp;
 DELIMITER $$
 
 CREATE
-PROCEDURE  asupcouk_asup . sr_acquire_comp  (sr_gameno INT, sr_cardno INT, sr_powername TEXT)
+PROCEDURE  asupcouk_asup . sr_acquire_comp  (sr_gameno INT, sr_cardno INT, sr_powername VARCHAR(15))
 BEGIN
 sproc:BEGIN
 
@@ -22,9 +22,9 @@ DECLARE sr_turnno INT DEFAULT 0;
 DECLARE sr_phaseno INT DEFAULT 0;
 DECLARE sr_userno INT DEFAULT 0;
 DECLARE sr_cash INT DEFAULT 0;
-DECLARE sr_terrname TEXT;
-DECLARE sr_terrno TEXT;
-DECLARE sr_res_name TEXT;
+DECLARE sr_terrname VARCHAR(25);
+DECLARE sr_terrno INT;
+DECLARE sr_res_name VARCHAR(30);
 DECLARE sr_res_amount INT DEFAULT 0;
 DECLARE sr_major INT DEFAULT 0;
 DECLARE sr_minor INT DEFAULT 0;
@@ -79,7 +79,7 @@ Where rc.cardno=sr_cardno
  and p.terrno=rc.terrno
  and b.gameno=sr_gameno
 ;
-IF @sr_debug!='N' THEN Select sr_terrname, sr_major, sr_minor, sr_terruser; END IF;
+IF @sr_debug!='N' THEN Select  sr_terrname, sr_terrno, sr_major, sr_minor, sr_terruser, sr_res_amount, sr_res_name; END IF;
 
 -- Check card can be bought
 IF sr_terruser > 0 and sr_terruser != sr_userno THEN

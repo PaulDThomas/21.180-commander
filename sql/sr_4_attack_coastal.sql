@@ -12,10 +12,10 @@ DELIMITER $$
 
 CREATE
 PROCEDURE `asupcouk_asup`.`sr_4_attack_coastal` (sr_gameno INT
-                                                ,sr_powername TEXT
-                                                ,sr_terrname_from TEXT
-                                                ,sr_terrname_to TEXT
-                                                ,sr_terrname_bombard TEXT
+                                                ,sr_powername VARCHAR(15)
+                                                ,sr_terrname_from VARCHAR(25)
+                                                ,sr_terrname_to VARCHAR(25)
+                                                ,sr_terrname_bombard VARCHAR(25)
                                                 ,sr_minor INT
                                                 )
 BEGIN
@@ -27,7 +27,7 @@ DECLARE sr_turnno INT DEFAULT 0;
 DECLARE sr_phaseno INT DEFAULT 0;
 DECLARE sr_ma INT DEFAULT 0;
 DECLARE sr_userno INT DEFAULT 0;
-DECLARE sr_att_powername TEXT;
+DECLARE sr_att_powername VARCHAR(15);
 DECLARE sr_att_dice INT DEFAULT 0;
 DECLARE sr_att_minor INT DEFAULT 0;
 DECLARE sr_minerals INT DEFAULT 0;
@@ -39,7 +39,7 @@ DECLARE sr_att_tech INT DEFAULT 0;
 DECLARE sr_attack_array TEXT;
 
 DECLARE sr_terrno_from INT DEFAULT 0;
-DECLARE Sr_terrtype_from TEXT;
+DECLARE Sr_terrtype_from VARCHAR(4);
 DECLARE sr_major_from_before INT DEFAULT 0;
 DECLARE sr_minor_from_before INT DEFAULT 0;
 DECLARE sr_major_from_after INT DEFAULT 0;
@@ -54,7 +54,7 @@ DECLARE sr_minor_to_after INT DEFAULT 0;
 DECLARE sr_minor_after INT DEFAULT 0;
 
 DECLARE sr_terrno_bombard INT DEFAULT 0;
-DECLARE sr_terrtype_bombard TEXT;
+DECLARE sr_terrtype_bombard VARCHAR(4);
 DECLARE sr_status_bombard TEXT;
 DECLARE sr_major_bombard_before INT DEFAULT 0;
 DECLARE sr_minor_bombard_before INT DEFAULT 0;
@@ -72,7 +72,7 @@ DECLARE sr_retaliation INT DEFAULT 0;
 DECLARE sr_ret_userno INT;
 
 DECLARE sr_def_userno INT DEFAULT 0;
-DECLARE sr_def_powername TEXT DEFAULT 'locals';
+DECLARE sr_def_powername VARCHAR(15) DEFAULT 'locals';
 DECLARE sr_def_minor INT DEFAULT 0;
 -- DECLARE sr_def_tech INT DEFAULT 0;
 -- DECLARE sr_def_lstars INT DEFAULT 0;

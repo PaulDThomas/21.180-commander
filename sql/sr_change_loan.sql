@@ -11,12 +11,12 @@ Drop procedure if exists sr_change_loan;
 DELIMITER $$
 
 CREATE
-PROCEDURE `asupcouk_asup`.`sr_change_loan` (sr_gameno INT, sr_powername TEXT, sr_amount INT)
+PROCEDURE `asupcouk_asup`.`sr_change_loan` (sr_gameno INT, sr_powername VARCHAR(15), sr_amount INT)
 BEGIN
 sproc:BEGIN
 
 -- Declare variables
--- $Id: sr_change_loan.sql 242 2014-07-13 13:48:48Z paul $
+-- $Id: sr_change_loan.sql 323 2015-12-19 21:25:27Z paul $
 DECLARE proc_name CHAR(15) Default "SR_CHANGE_LOAN";
 DECLARE sr_userno INT Default 0;
 DECLARE sr_turnno INT DEFAULT 0;

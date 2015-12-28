@@ -12,7 +12,7 @@ DELIMITER $$
 
 CREATE
 PROCEDURE `asupcouk_asup`.`sr_4_boomer_fire` (sr_gameno INT
-                                             ,sr_powername TEXT
+                                             ,sr_powername VARCHAR(15)
 										     ,sr_boomerno INT
 											 ,sr_warhead_array TEXT
                                              )
@@ -36,7 +36,7 @@ DECLARE proc_name TEXT Default "SR_4_BOOMER_FIRE";
 DECLARE sr_turnno INT Default 0;
 DECLARE sr_phaseno INT Default 0;
 DECLARE sr_userno INT Default 0;
-DECLARE sr_current_terrname TEXT;
+DECLARE sr_current_terrname VARCHAR(25);
 DECLARE sr_current_terrno INT Default 0;
 DECLARE sr_avail_nukes INT Default 0;
 DECLARE sr_avail_neutron INT Default 0;
@@ -44,14 +44,14 @@ DECLARE sr_targets INT Default 0;
 DECLARE i INT Default 0;
 DECLARE d INT Default 99;
 DECLARE r DOUBLE Default 0;
-DECLARE sr_terrname TEXT;
+DECLARE sr_terrname VARCHAR(25);
 DECLARE sr_terrno INT Default 0;
 DECLARE sr_major INT Default 0;
 DECLARE sr_minor INT Default 0;
 DECLARE sr_nukes INT Default 0;
 DECLARE sr_neutron INT Default 0;
 DECLARE sr_def_userno INT Default 0;
-DECLARE sr_def_powername TEXT;
+DECLARE sr_def_powername VARCHAR(25);
 DECLARE sr_slots INT Default 0;
 DECLARE sr_hits INT Default 0;
 DECLARE done INT DEFAULT 0;

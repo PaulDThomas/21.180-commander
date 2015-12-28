@@ -21,8 +21,8 @@ DECLARE sr_userno INT;
 DECLARE done INT DEFAULT 0;
 DECLARE sr_order_xml TEXT DEFAULT '<BUILD>';
 DECLARE sr_terrno INT DEFAULT 0;
-DECLARE sr_terrname TEXT DEFAULT '';
-DECLARE sr_terrtype TEXT DEFAULT '';
+DECLARE sr_terrname VARCHAR(25) DEFAULT '';
+DECLARE sr_terrtype VARCHAR(4) DEFAULT '';
 
 DECLARE terrs CURSOR FOR
 Select b.build_userno, terrno, terrname, terrtype

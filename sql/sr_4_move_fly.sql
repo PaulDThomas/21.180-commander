@@ -11,11 +11,11 @@ Drop procedure if exists sr_4_move_fly;
 DELIMITER $$
 
 CREATE
-PROCEDURE `asupcouk_asup`.`sr_4_move_fly` (sr_gameno INT, sr_powername TEXT, sr_terrname_from TEXT, sr_terrname_to TEXT, sr_major INT, sr_minor INT)
+PROCEDURE `asupcouk_asup`.`sr_4_move_fly` (sr_gameno INT, sr_powername VARCHAR(15), sr_terrname_from VARCHAR(25), sr_terrname_to VARCHAR(25), sr_major INT, sr_minor INT)
 BEGIN
 sproc:BEGIN
 
--- $Id: sr_4_move_fly.sql 242 2014-07-13 13:48:48Z paul $
+-- $Id: sr_4_move_fly.sql 323 2015-12-19 21:25:27Z paul $
 DECLARE proc_name TEXT Default "SR_4_MOVE_FLY";
 DECLARE sr_userno INT Default 0;
 DECLARE sr_turnno INT DEFAULT 0;

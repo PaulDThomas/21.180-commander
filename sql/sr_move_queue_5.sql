@@ -17,12 +17,12 @@ DECLARE sr_turnno INT DEFAULT 0;
 DECLARE sr_phaseno INT DEFAULT 0;
 DECLARE last_userno INT;
 DECLARE sr_userno INT;
-DECLARE sr_powername TEXT DEFAULT '';
-DECLARE last_powername TEXT DEFAULT '';
+DECLARE sr_powername VARCHAR(15) DEFAULT '';
+DECLARE last_powername VARCHAR(15) DEFAULT '';
 DECLARE done INT DEFAULT 0;
 DECLARE sr_terrno INT DEFAULT 0;
-DECLARE sr_terrname TEXT DEFAULT '';
-DECLARE sr_terrtype TEXT DEFAULT '';
+DECLARE sr_terrname VARCHAR(25) DEFAULT '';
+DECLARE sr_terrtype VARCHAR(4) DEFAULT '';
 DECLARE sr_cash INT DEFAULT 0;
 DECLARE sr_spend INT DEFAULT 0;
 

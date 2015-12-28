@@ -10,7 +10,7 @@ Drop procedure if exists sr_take_territory;
 -- --------------------------------------------------------------------------------
 DELIMITER $$
 
-CREATE PROCEDURE `asupcouk_asup`.`sr_take_territory` (sr_gameno INT, sr_terrname TEXT, sr_powername TEXT, sr_major INT, sr_minor INT)
+CREATE PROCEDURE `asupcouk_asup`.`sr_take_territory` (sr_gameno INT, sr_terrname VARCHAR(25), sr_powername VARCHAR(15), sr_major INT, sr_minor INT)
 BEGIN
 sproc:BEGIN
 
@@ -20,12 +20,12 @@ DECLARE sr_turnno INT Default 0;
 DECLARE sr_phaseno INT Default 0;
 DECLARE sr_userno INT Default 0;
 DECLARE sr_terrno INT Default 0;
-DECLARE sr_terrtype TEXT;
-DECLARE sr_check_powername TEXT;
+DECLARE sr_terrtype VARCHAR(4);
+DECLARE sr_check_powername VARCHAR(15);
 DECLARE sr_output_powername TEXT;
 DECLARE sr_check_n INT Default 0;
 DECLARE sr_sep TEXT;
-DECLARE sr_previous_powername TEXT;
+DECLARE sr_previous_powername VARCHAR(15);
 DECLARE sr_previous_userno INT;
 DECLARE sr_previous_major INT;
 DECLARE sr_previous_minor INT;

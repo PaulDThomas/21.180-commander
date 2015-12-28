@@ -29,7 +29,7 @@ DECLARE done INT DEFAULT 0;
 DECLARE phasedesc TEXT;
 DECLARE message_text TEXT DEFAULT '<BRIBES>';
 DECLARE sr_cash INT DEFAULT 0;
-DECLARE sr_powername TEXT;
+DECLARE sr_powername VARCHAR(15);
 
 DECLARE orders CURSOR FOR
 Select userno, phaseno, cost

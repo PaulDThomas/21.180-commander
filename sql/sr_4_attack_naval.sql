@@ -15,9 +15,9 @@ Drop procedure if exists sr_4_attack_naval;
 DELIMITER $$
 
 CREATE PROCEDURE `asupcouk_asup`.`sr_4_attack_naval` (sr_gameno INT
-                                                ,sr_powername TEXT
-                                                ,sr_terrname_from TEXT
-                                                ,sr_terrname_to TEXT
+                                                ,sr_powername VARCHAR(15)
+                                                ,sr_terrname_from VARCHAR(25)
+                                                ,sr_terrname_to VARCHAR(25)
                                                 ,sr_major INT
                                                 ,sr_minor INT
                                                 ,sr_att_major CHAR(1)
@@ -31,8 +31,8 @@ DECLARE sr_turnno INT Default 0;
 DECLARE sr_phaseno INT Default 0;
 DECLARE sr_userno INT Default 0;
 DECLARE sr_def_userno INT Default 0;
-DECLARE sr_def_powername Text;
-DECLARE sr_att_powername Text;
+DECLARE sr_def_powername VARCHAR(15);
+DECLARE sr_att_powername VARCHAR(15);
 DECLARE sr_terrno_from INT Default 0;
 DECLARE sr_terrno_to INT Default 0;
 DECLARE sr_major_from_before INT Default 0;

@@ -7,9 +7,9 @@ DROP PROCEDURE IF EXISTS `asupcouk_asup`.`sr_boomer_move`;
 DELIMITER $$
 
 CREATE PROCEDURE `asupcouk_asup`.`sr_boomer_move` (sr_gameno INT
-											      ,sr_powername TEXT
+											      ,sr_powername VARCHAR(15)
                                                   ,sr_boomerno INT
-												  ,sr_terrname_to TEXT
+												  ,sr_terrname_to VARCHAR(25)
 												  ,sr_visible CHAR(1)
 												  ,sr_nukes INT
 												  ,sr_neutron INT
@@ -29,12 +29,12 @@ DECLARE sr_nukes_available INT Default 0;
 DECLARE sr_neutron_available INT Default 0;
 DECLARE sr_nukes_avafter INT Default 0;
 DECLARE sr_neutron_avafter INT Default 0;
-DECLARE sr_terrname_from TEXT;
+DECLARE sr_terrname_from CHAR(25);
 DECLARE sr_terrno_from INT Default 0;
 DECLARE sr_nukes_before INT Default 0;
 DECLARE sr_neutron_before INT Default 0;
 DECLARE sr_home_terrno INT Default 0;
-DECLARE sr_home_terrname TEXT;
+DECLARE sr_home_terrname VARCHAR(25);
 DECLARE sr_is_visible CHAR(1);
 DECLARE sr_terrno_to INT Default 0;
 DECLARE sr_major_from_before INT Default 0;
@@ -94,19 +94,19 @@ IF sr_boomerno not in (Select boomerno
                );
     LEAVE sproc;
 END IF;
-Select bm.terrno, nukes, neutron, visible, Max(b.terrno), Max(pl.terrname)
-Into sr_terrno_from, sr_nukes_before, sr_neutron_before, sr_is_visible, sr_home_terrno, sr_home_terrname
+Select bm.terrno, nukes, neutron, visible, Max(b.terrno), Max(pl.terrname), pl2.terrname
+Into sr_terrno_from, sr_nukes_before, sr_neutron_before, sr_is_visible, sr_home_terrno, sr_home_terrname, sr_terrname_from
 From sp_boomers bm
 Left Join sp_border br On bm.terrno=br.terrno_from
 Left Join sp_powers pw On pw.powername=sr_powername
 Left Join sp_places pl On br.terrno_to=pl.terrno and pl.terrtype=pw.terrtype
 Left Join sp_board b On b.gameno=bm.gameno and b.terrno=pl.terrno and b.userno=sr_userno
+Left Join sp_places pl2 On bm.terrno=pl2.terrno
 Where bm.gameno=sr_gameno
  and bm.userno=sr_userno
  and bm.boomerno=sr_boomerno
 Limit 1
 ;
-Select terrname Into sr_terrname_from From sp_places Where terrno=sr_terrno_from;
 
 -- Check warheads are not going down
 IF sr_nukes < sr_nukes_before or sr_neutron < sr_neutron_before THEN
@@ -194,6 +194,7 @@ IF sr_terrname_to not in (Select terrname
                );
     LEAVE sproc;
 END IF;
+
 Select terrno Into sr_terrno_to From sp_places Where terrname=sr_terrname_to;
 Select major, minor Into sr_major_from_before, sr_minor_from_before From sp_board Where gameno=sr_gameno and terrno=sr_terrno_from;
 Select major, minor Into sr_major_to_before, sr_minor_to_before From sp_board Where gameno=sr_gameno and terrno=sr_terrno_to;
@@ -221,7 +222,7 @@ END IF;
 IF sr_visible not in ('Y') THEN Set sr_visible='N'; END IF;
 
 IF @sr_debug != 'N' THEN
-	Select sr_terrno_from, sr_terrno_to, sr_home_terrname, sr_visible, sr_major_from_before, sr_minor_from_before, sr_major_to_before, sr_minor_to_before;
+	Select sr_terrno_from, sr_terrname_from, sr_terrno_to, sr_home_terrname, sr_visible, sr_major_from_before, sr_minor_from_before, sr_major_to_before, sr_minor_to_before;
 END IF;
 
 -- Make update
