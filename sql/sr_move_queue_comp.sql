@@ -16,12 +16,12 @@ BEGIN
 sproc:BEGIN
 
 -- Create list of companies to purchase
--- $Id: sr_move_queue_comp.sql 242 2014-07-13 13:48:48Z paul $
+-- $Id: sr_move_queue_comp.sql 330 2016-01-01 12:27:18Z paul $
 DECLARE proc_name TEXT DEFAULT "SR_MOVE_QUEUE_COMP";
 DECLARE sr_turnno INT DEFAULT 0;
 DECLARE sr_phaseno INT DEFAULT 0;
 DECLARE done INT DEFAULT 0;
-DECLARE compxml TEXT DEFAULT '<COMPANIES><n>0</n></COMPANIES>';
+DECLARE compxml VARCHAR(1024) DEFAULT "<COMPANIES><n>0</n></COMPANIES>";
 DECLARE ncomps INT DEFAULT 0;
 DECLARE sr_cardno INT DEFAULT 0;
 
@@ -32,8 +32,8 @@ Join sp_res_cards rc On rc.cardno=c.cardno
 Join sp_board b On c.gameno=b.gameno and b.terrno=rc.terrno and b.userno > -9
 Where (c.userno=0 or c.userno is null)
  and c.gameno=sr_gameno
-Order By rand()
-Limit 10
+ Order By rand()
+Limit 15
 ;
 
 DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
@@ -48,22 +48,29 @@ Select turnno, phaseno Into sr_turnno, sr_phaseno From sp_game Where gameno=sr_g
 
 -- Check for existing order
 Select order_code, extractValue(order_code,'/COMPANIES/n') Into compxml, ncomps From sp_orders Where gameno=sr_gameno and ordername='SR_ACOMP';
+IF @sr_debug!='N' THEN Select "debug1", sr_cardno, done, ncomps, charset(compxml), compxml; END IF;
 
 -- Loop through available results
 Set done=0;
+IF @sr_debug!='N' THEN Select "debug2a", sr_cardno, done, ncomps, charset(compxml), compxml; END IF;
 OPEN available;
+IF @sr_debug!='N' THEN Select "debug2b", sr_cardno, done, ncomps, charset(compxml), compxml; END IF;
 read_loop: LOOP
     Fetch From available Into sr_cardno;
-    IF @sr_debug!='N' THEN Select sr_cardno, done, ncomps; END IF;
+	IF @sr_debug!='N' THEN Select "debug2c", sr_cardno, done, ncomps, charset(compxml), compxml; END IF;
     IF done or ncomps >= 10 THEN LEAVE read_loop; END IF;
 
-    -- Add Card if count < 10
-    IF (extractValue(compxml,Concat("/COMPANIES/CardNo[text()='",sr_cardno,"']"))='') THEN
+    -- Add Card if it is not found
+    IF (extractValue(compxml,Concat("/COMPANIES/CardNo[text()='",sr_cardno,"']"))='') < 10 THEN
         Set ncomps = ncomps+1;
         Set compxml = updateXML(compxml,'/COMPANIES/n',Concat(sf_fxml('n',ncomps),sf_fxml('CardNo',sr_cardno)));
+		IF @sr_debug!='N' THEN Select "debug2", sr_cardno, done, ncomps, charset(compxml), compxml; END IF;
     END IF;
+    IF @sr_debug!='N' THEN Select "debug3", sr_cardno, done, ncomps, charset(compxml), compxml; END IF;
 END LOOP;
 CLOSE available;
+
+IF @sr_debug!='N' THEN Select "debug4", sr_cardno, done, ncomps, charset(compxml), compxml; END IF;
 
 -- Update order_code
 Delete From sp_orders Where gameno=sr_gameno and turnno=sr_turnno and phaseno=sr_phaseno and ordername='SR_ACOMP';
